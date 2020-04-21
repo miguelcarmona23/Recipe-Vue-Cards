@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recipe Vue Cards</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png">
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
+
+
+</head>
+
+<body>
+    <!--Navbar-->
+    <header>
+        <div class="inner">
+            <nav>
+                <a href="#" class="logo">Recipes</a>
+                <!-- <img src="https://images.vexels.com/media/users/3/144007/isolated/lists/6150d0cfaabb9b2fc29008ee0f8cf099-burger-fast-food-stroke-icon.png">Recipes</a>
+                <input type="checkbox" id="nav" /><label for="nav"></label> -->
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Recipe</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="app">
+        <div class="card-row">
+            <div v-for="(card, index) in cards" :key="index" :ref="`card_${index}`" @mouseover="hoverCard(index)" @mouseout="hoverCard(-1)" class="card">
+
+                <img class="card-image" :class="{'selected': isSelected(index)}" :src="card.image">
+
+                <div class="card-footer">
+                    <p class="card-text">RECIPE</p>
+                    <h3 class="card-title">{{card.title}}</h3>
+                    <p class="card-text">by
+                        <span class="card-author" :class="{'selected': isSelected(index)}">{{card.author}}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<!--Javascript-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+<script src="JS/script.js"></script>
+
+</html>
